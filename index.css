@@ -1,0 +1,16 @@
+.input{
+    
+    height: 20em;
+    vertical-align: top;
+    text-align: left;
+    word-wrap: break-word;
+}
+body{
+    background-color: #185CAC;
+}
+*{
+    color: white;
+}
+button{
+    background-color: maroon
+}

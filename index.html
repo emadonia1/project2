@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>USAA Announcement Generator</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    
+</head>
+<h1>
+  USAA Announcement Generator 
+</h1>
+<body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+    <form id="form1" action="/action_page.php">
+        Announcement: <br><textarea class="input" name="announcement" rows="10" cols="100" wrap="soft"></textarea><br><br><br>
+      </form> 
+
+      <div id="preview">        
+        <!-- Preview: <input type="text" name="lname" value=""><br><br> -->
+        <link href="      https://api.smmry.com        ">
+      </div>
+      
+      <button id="button" onclick="myFunction()">Try it</button>
+      
+      <p id="summary"></p>
+      <div>
+          <br>
+        <div ><a id="tweet" href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="This is an example of how the tweet will look:" data-url="https://www.usaa.com/" data-via="USAA_ASU" data-hashtags="USAA" data-related="ASU,USAA" data-lang="en" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+      <br>
+      <div class="fb-share-button" data-href="https://usaa.com/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>    </div>
+      <br>
+      <div><script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+<script type="IN/Share" data-url="https://www.linkedin.com"></script>
+</div>
+      <br>
+      <input class="w3-check" type="checkbox">
+      <label>Twitter</label></p>
+      <p>
+      <input class="w3-check" type="checkbox">
+      <label> Facebook</label></p>
+      <p>
+      <input class="w3-check" type="checkbox">
+      <label>LinkedIn</label></p>
+      <!-- tweet.data-text = "this is the new tweet"; -->
+      <script>
+      function myFunction() {
+        var x = document.getElementById("form1");
+        var text = "";
+        var i;
+        for (i = 0; i < x.length ;i++) {
+        text += x.elements[i].value + "<br>";
+        }
+        // document.getElementById("tweet").data-text = "This is the new tweet";
+
+        // text += document.getElementById("tweet").data-text;
+        document.getElementById("summary").innerHTML = text;
+      }
+        var request = new XMLHttpRequest()
+
+        request.open('GET', 'https://api.smmry.com/SM_API_KEY=19E879860E/SM_URL=', true)
+
+        request.onload = function(){
+
+        }
+        request.send()
+      
+     
+      </script>
+
+<footer> - DDESH-CIS - 2019 Arizona State University</footer>
+</body>
+
+</html>
