@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test</title>
+    <script src = 'https://code.jquery.com/jquery-3.4.1.min.js'></script>
+</head>
+ 
+<style>
+
+* 
+{
+	font-family: sans-serif;
+    cursor: pointer;
+}
+
+
+.center
+{
+    text-align: center;
+    display: block;
+}
+
+#sentenceSelect
+{
+    color: grey;
+    width: 60px;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+
+textarea
+{
+    border:2px solid black;
+    margin-top:100px;
+    padding: 10px;
+}
+
+button
+{
+    background: red;
+    color: whitesmoke;
+    border: 1px solid black;
+    height: 30px;
+    width: 200px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+#output
+{
+    text-align: center;
+}
+
+#logOutput
+{
+  border:1px solid #999999;
+  color: black;
+  font-size:20px;
+  height: 100%;
+  width: 700px;
+  padding: 20px;
+  margin:auto;
+}
+
+#twitter
+{
+  border:1px solid #999999;
+  color: black;
+  font-size:20px;
+  height: 300px;
+  width: 700px;
+  padding: 20px;
+  margin:auto;
+}
+
+#tweet
+{
+    width: 12%;
+    height: 50px;
+    padding: 10px;
+    float: left;
+    margin-top: 70px;
+}
+
+#fb
+{
+    width: 12%;
+    height: 50px;
+    padding:10px;
+    float: left;
+    margin-top: 70px;
+}
+
+#preview1
+{
+    position: relative;
+    margin-top: 10px;
+    left: 300px;
+    width: 400px;
+    height: 250px;
+    overflow: auto;
+    border: 1px solid black;
+}
+
+#preview2
+{
+    position: relative;
+    margin-top: 10px;
+    left: 300px;
+    width: 400px;
+    height: 250px;
+    overflow: auto;
+    border: 1px solid black;
+}
+
+</style>
+
+<script>
+     var textToUse;
+    function summarization()
+    {
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://api.meaningcloud.com/summarization-1.0",
+            "method": "POST",
+            "headers": 
+            {
+            "content-type": "application/x-www-form-urlencoded"
+            },
+            "data": 
+            {
+            "key": "59f5130e97de404893a5bf72eafec3e5",
+            "txt": document.getElementById("inputText").value,
+            "url": "YOUR_URL_VALUE",
+            "doc": "YOUR_DOC_VALUE",
+            "sentences": $("#sentenceSelect :selected").val()
+            }
+        }
+
+
+
+            $.ajax(settings).done(function (response) 
+            {
+                var e = JSON.stringify(response.summary);
+
+                document.getElementById("output").innerHTML = JSON.parse(e);
+                var s = document.getElementById("output").innerHTML;
+                textToUse=s;
+                twitter();
+                copyToClip();
+            });
+    }
+
+
+    function clearContents(element)
+    {
+        element.value = '';
+    }          
+    
+
+    function twitter()
+    {
+        tweet.addEventListener('click',function(e)
+        {
+            $("#preview1").attr("data", "https://twitter.com/intent/tweet?text=" + textToUse);
+        }, false);     
+    }
+
+    function facebook()
+    {
+        fb.addEventListener('click', function()
+        {
+            // window.open("https://facebook.com");
+        })
+    }
+
+    function copyToClip()
+    {
+        var copyText = document.getElementById("output");
+        var textArea = document.createElement("textArea");
+        textArea.value = copyText.textContent;
+        textArea.select();
+        document.execCommand("Copy");
+        alert(textArea.value + " has been copied!");
+    }
+
+  
+</script>
+<body>
+    
+
+
+    <div name="inputArea" class="center">
+        <textarea name="inputText" id="inputText" cols="30" rows="10" onclick="clearContents(this)" onchange="name=this.value;">Enter your announcement</textarea>
+    </div>
+
+    <div name="selectArea" class="center">
+       Number of Sentences: <select id="sentenceSelect" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+
+    <div class="center">
+        <button id="submit" name="submitButton" onclick="summarization()" value="submit">Summarize!</button>
+    </div>
+
+    <div id = logOutput class="center">
+        <p id="output" class="center" value="this"></p>
+    </div>
+
+    <div id="socialmedia" class="center">
+        <img src="http://albinolullaby.com/img/s_tweet_button.png" id="tweet">
+        <object type="text/html" class="center" id="preview1" data="">
+        </object>
+        <img src="http://albinolullaby.com/img/s_fb_button.png" id="fb">
+        <object type="text/html" class="center" id="preview2" data="">
+        </object>
+    </div>
+
+</body>
+</html>
