@@ -13,6 +13,7 @@
 * 
 {
 	font-family: sans-serif;
+    cursor: pointer;
 }
 
 
@@ -63,11 +64,24 @@ button
   margin:auto;
 }
 
+#twitter
+{
+  border:1px solid #999999;
+  color: black;
+  font-size:20px;
+  height: 300px;
+  width: 700px;
+  padding: 20px;
+  margin:auto;
+}
+
 #tweet
 {
     width: 12%;
     height: 50px;
     padding: 10px;
+    float: left;
+    margin-top: 70px;
 }
 
 #fb
@@ -75,11 +89,35 @@ button
     width: 12%;
     height: 50px;
     padding:10px;
+    float: left;
+    margin-top: 70px;
 }
+
+#preview1
+{
+    position: relative;
+    margin-top: 10px;
+    left: 300px;
+    width: 400px;
+    height: 250px;
+    overflow: auto;
+    border: 1px solid black;
+}
+
+#preview2
+{
+    position: relative;
+    margin-top: 10px;
+    left: 300px;
+    width: 400px;
+    height: 250px;
+    overflow: auto;
+    border: 1px solid black;
+}
+
 </style>
 
 <script>
-    
      var textToUse;
     function summarization()
     {
@@ -112,7 +150,7 @@ button
                 var s = document.getElementById("output").innerHTML;
                 textToUse=s;
                 twitter();
-                fbPost();
+                copyToClip();
             });
     }
 
@@ -125,24 +163,38 @@ button
 
     function twitter()
     {
-        tweet.addEventListener('click',function()
+        tweet.addEventListener('click',function(e)
         {
-            window.open("https://twitter.com/intent/tweet?text= " + textToUse);
+            $("#preview1").attr("data", "https://twitter.com/intent/tweet?text=" + textToUse);
         }, false);     
-    };
+    }
 
-    function fbPost()
+    function facebook()
     {
         fb.addEventListener('click', function()
         {
-            window.open("https://www.facebook.com/share.php?u=https://www.usaa.com/ " + textToUse);
-        }, false);
+            // window.open("https://facebook.com");
+        })
     }
 
+    function copyToClip()
+    {
+        var copyText = document.getElementById("output");
+        var textArea = document.createElement("textArea");
+        textArea.value = copyText.textContent;
+        document.body.appendChild(textArea);
+        textArea.select();
+        textArea.style.display = "none";
+        document.execCommand("Copy");
+        alert(textArea.value + " has been copied!");
+    }
+
+  
 </script>
 <body>
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+    
+
+
     <div name="inputArea" class="center">
         <textarea name="inputText" id="inputText" cols="30" rows="10" onclick="clearContents(this)" onchange="name=this.value;">Enter your announcement</textarea>
     </div>
@@ -167,10 +219,12 @@ button
 
     <div id="socialmedia" class="center">
         <img src="http://albinolullaby.com/img/s_tweet_button.png" id="tweet">
-        <img src="http://albinolullaby.com/img/s_fb_button.png" id="fb">
+        <object type="text/html" class="center" id="preview1" data="">
+        </object>
+        <div class="fb-share-button" data-href="https://usaa.com/" data-layout="button" data-text="This is the announcement" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>    </div>
+        <object type="text/html" class="center" id="preview2" data="">
+        </object>
     </div>
-    <div class="fb-share-button" data-href="https://usaa.com/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>    </div>
-
 
 </body>
 </html>
