@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="fake.css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+
+<body class="hmpg">
+		<nav>
+				<div class="toggle">
+					<i class="fa fa-bars menu" aria-hidden="true"></i>
+				</div>
+				<ul>
+					<li><a href="HomepageIS.html">Home</a></li>
+					<li><a href="facebook.html">Facebook</a></li>
+					<li><a href="linkedIn.html">Linked In</a></li>
+					<li><a href="twitter.html">Twitter</a></li>
+				</ul>
+			</nav>
+
+
+
+			<h1>Announcements</h1>
+
+
+			<form>
+  			Facebok<br>
+  			<textarea rows="4" cols="50">
+  				
+  			</textarea>
+  			<br>
+  			LinkedIn<br>
+  			<textarea rows="4" cols="50"></textarea>
+  			<br>
+  			Twitter<br>
+  			<textarea rows="4" cols="50"></textarea>
+  			
+  			<br><br>
+  			<input type="submit" value="Submit">
+			</form> 
+
+
+
+		
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.menu').click(function(){
+					$('ul').toggleClass('active');
+				})
+			})
+		</script>
+</body>
+</html>
