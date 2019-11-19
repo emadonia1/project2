@@ -6,114 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Test</title>
     <script src = 'https://code.jquery.com/jquery-3.4.1.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
  
 <style>
-
-* 
-{
-	font-family: sans-serif;
-    cursor: pointer;
-}
-
-
-.center
-{
-    text-align: center;
-    display: block;
-}
-
-#sentenceSelect
-{
-    color: grey;
-    width: 60px;
-    border: 1px solid black;
-    margin-top: 10px;
-}
-
-textarea
-{
-    border:2px solid black;
-    margin-top:100px;
-    padding: 10px;
-}
-
-button
-{
-    background: red;
-    color: whitesmoke;
-    border: 1px solid black;
-    height: 30px;
-    width: 200px;
-    margin-top: 10px;
-    margin-bottom: 30px;
-}
-#output
-{
-    text-align: center;
-}
-
-#logOutput
-{
-  border:1px solid #999999;
-  color: black;
-  font-size:20px;
-  height: 100%;
-  width: 700px;
-  padding: 20px;
-  margin:auto;
-}
-
-#twitter
-{
-  border:1px solid #999999;
-  color: black;
-  font-size:20px;
-  height: 300px;
-  width: 700px;
-  padding: 20px;
-  margin:auto;
-}
-
-#tweet
-{
-    width: 12%;
-    height: 50px;
-    padding: 10px;
-    float: left;
-    margin-top: 70px;
-}
-
-#fb
-{
-    width: 12%;
-    height: 50px;
-    padding:10px;
-    float: left;
-    margin-top: 70px;
-}
-
-#preview1
-{
-    position: relative;
-    margin-top: 10px;
-    left: 300px;
-    width: 400px;
-    height: 250px;
-    overflow: auto;
-    border: 1px solid black;
-}
-
-#preview2
-{
-    position: relative;
-    margin-top: 10px;
-    left: 300px;
-    width: 400px;
-    height: 250px;
-    overflow: auto;
-    border: 1px solid black;
-}
 
 </style>
 
@@ -179,27 +75,34 @@ button
 
     function copyToClip()
     {
-        var copyText = document.getElementById("output");
+        var copyText = document.getElementById("output").innerHTML;
         var textArea = document.createElement("textArea");
-        textArea.value = copyText.textContent;
+        textArea.value = copyText;
+        // textArea.value = copyText.textContent;
         document.body.appendChild(textArea);
         textArea.select();
-        textArea.style.display = "none";
         document.execCommand("Copy");
+        textArea.style.display = "none";
         alert(textArea.value + " has been copied!");
     }
 
   
 </script>
 <body>
-    
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+    <h1>
+        USAA Announcement Generator 
+    </h1>
 
-
-    <div name="inputArea" class="center">
-        <textarea name="inputText" id="inputText" cols="30" rows="10" onclick="clearContents(this)" onchange="name=this.value;">Enter your announcement</textarea>
+    <h2>
+        Announcement:
+    </h2>
+    <div name="inputArea" class="inputArea">
+        <textarea name="inputText" id="inputText" cols="100" rows="20" onclick="clearContents(this)" onchange="name=this.value;">Enter your announcement</textarea>
     </div>
 
-    <div name="selectArea" class="center">
+    <div name="selectArea" class="dropDown">
        Number of Sentences: <select id="sentenceSelect" required>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -221,10 +124,27 @@ button
         <img src="http://albinolullaby.com/img/s_tweet_button.png" id="tweet">
         <object type="text/html" class="center" id="preview1" data="">
         </object>
-        <div class="fb-share-button" data-href="https://usaa.com/" data-layout="button" data-text="This is the announcement" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>    </div>
+        <div class="fb-share-button" data-href="https://communities.usaa.com/t5/Press-Releases/Sesame-Workshop-USAA-and-the-Bob-Woodruff-Foundation-work/ba-p/216446" data-layout="button" data-text="This is the announcement" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>    </div>
         <object type="text/html" class="center" id="preview2" data="">
         </object>
     </div>
 
 </body>
 </html>
+
+
+
+<!-- 
+    
+When a parent or relative needs care during a long-term illness or injury, the whole family becomes part of the caregiving picture – even young children. In the United States, 3.4 million people with children provide care for a chronically ill, wounded, or injured veteran or military serviceperson; another 4.5 million civilians with children also care for disabled, aging, or chronically ill relatives. Despite the growing numbers of families in caregiving roles, very few resources exist to help little ones understand the changes caregiving can bring to their day-to-day lives. Sesame Workshop and USAA today announced Sesame Street for Military Families: Caregiving, a new initiative to support military and veteran families as they care for a wounded, ill, or injured parent or relative. Additional support for the initiative is provided by the Bob Woodruff Foundation.
+ 
+“Coming home from a deployment with visible or invisible injuries is a huge challenge for any servicemember or veteran – especially those with young families,” said Sherrie Westin, President of Social Impact and Philanthropy at Sesame Workshop, the nonprofit educational organization behind Sesame Street. “Even beyond the military community, the reality is that most of us will serve as caregivers at some point in our lives. With this initiative, we want every caregiving parent and child to know that they’re not alone, and that asking for help is always a brave thing to do.”
+ 
+With a host of research-based resources – including videos starring the Sesame Street Muppets – Sesame Street for Military Families: Caregiving addresses the specific challenges of family-based care from a child’s perspective. The initiative was designed to help children understand: why their parent may look or act differently than “before”; how to safely express complicated or confusing feelings; how their parent’s illness or injury can change over time; and how to describe their family’s new situation to themselves and others. For adults, the initiative offers guidance on “re-learning” how to parent while needing care or filling a new caregiver role.
+ 
+The child-facing resources in Sesame Street for Military Families: Caregiving use the weather – something even very young children understand – as a metaphor to explain the ups and downs of caregiving and recovery. On “sunny days,” kids and parents feel confident, safe, and happy spending time together. “Cloudy days” have small challenges related to the parent’s injury or recovery, like missing a planned outing.  On “stormy days,” children may worry about the future and have trouble accepting the family’s new normal.
+ 
+ “USAA is here for military families through all of life’s major events,” said Stuart Parker, CEO of USAA. “We are grateful to Sesame Workshop for creating resources that help kids and parents feel strong and supported in the everyday challenges they face.”
+
+
+-->
