@@ -81,44 +81,38 @@ button
 
 #tweet
 {
-    width: 12%;
-    height: 50px;
-    padding: 10px;
-    float: left;
-    margin-top: 70px;
+    padding-top: 50px;
+    padding-bottom: 25px;
+    width: 6%;
+    height: 6%;
+    /* padding: 10px; */
+    /* float: left; */
+    clear: both;
+    /* margin-top: 70px; */
 }
 
-/* #fb
-{
-    width: 12%;
-    height: 50px;
-    padding:10px;
-    float: left;
-    margin-top: 70px;
-    clear: left;
-} */
 
 #preview1
 {
-    position: relative;
-    margin-top: 10px;
-    left: 300px;
-    width: 400px;
-    height: 250px;
-    overflow: auto;
-    border: 1px solid white;
-    float: none;
+    border:1px solid #999999;
+    color: black;
+    font-size:20px;
+    height: 100%;
+    width: 700px;
+    padding: 20px;
+    margin:auto;
 }
 
 #preview2
 {
-    position: relative;
-    margin-top: 10px;
-    left: 300px;
-    width: 400px;
-    height: 250px;
-    overflow: auto;
-    border: 1px solid white;
+    border:1px solid #999999;
+    color: black;
+    font-size:20px;
+    height: 100%;
+    width: 700px;
+    padding: 20px;
+    margin:auto;
+    clear: both;
 }
 
 /*  */
@@ -143,20 +137,23 @@ h1{
 	text-align: center;
 }
 
-table{
-	margin-left: auto;
-	margin-right: auto;
-}
-
 footer{
 	text-align: center;
 	font-size: 10px;
-}
-
-td{
-	padding: 10px;
 }
     
 option{
     color: black;
 }
+
+/* .socialMedia{
+    float: left;
+} */
+ 
+.fb-share-button{
+    /* animation-delay: 10s; */
+    padding-top: 50px;
+    width: 12%;
+    height: 50px;
+    clear: both; 
+} 

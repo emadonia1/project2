@@ -38,18 +38,46 @@
 
 
 
+
             $.ajax(settings).done(function (response) 
+            
             {
                 var e = JSON.stringify(response.summary);
 
                 document.getElementById("output").innerHTML = JSON.parse(e);
                 var s = document.getElementById("output").innerHTML;
                 textToUse=s;
-                twitter();
+                // twitter();
                 copyToClip();
             });
-    }
+        var twitterSettings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://api.meaningcloud.com/summarization-1.0",
+            "method": "POST",
+            "headers": 
+            {
+            "content-type": "application/x-www-form-urlencoded"
+            },
+            "data": 
+            {
+            "key": "59f5130e97de404893a5bf72eafec3e5",
+            "txt": document.getElementById("inputText").value,
+            "url": "YOUR_URL_VALUE",
+            "doc": "YOUR_DOC_VALUE",
+            "sentences": 1
+            }
+        }
+            $.ajax(twitterSettings).done(function (response)
+            {
+                var e = JSON.stringify(response.summary);
 
+                document.getElementById("preview1").innerHTML = JSON.parse(e);
+                var s = document.getElementById("preview1").innerHTML;
+                twitterSummary=t;
+                // twitter();
+            });
+        }
 
     function clearContents(element)
     {
@@ -89,8 +117,8 @@
   
 </script>
 <body>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+    <!-- <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script> -->
     <h1>
         USAA Announcement Generator 
     </h1>
@@ -120,14 +148,17 @@
         <p id="output" class="center" value="this"></p>
     </div>
 
-    <div id="socialmedia" class="center">
+    <div id="socialMedia" class="center">
         <img src="http://albinolullaby.com/img/s_tweet_button.png" id="tweet">
-        <object type="text/html" class="center" id="preview1" data="">
-        </object>
-        <div class="fb-share-button" data-href="https://communities.usaa.com/t5/Press-Releases/Sesame-Workshop-USAA-and-the-Bob-Woodruff-Foundation-work/ba-p/216446" data-layout="button" data-text="This is the announcement" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>    </div>
-        <object type="text/html" class="center" id="preview2" data="">
-        </object>
     </div>
+    <object type="text/html" class="center" id="preview1" data="">
+    </object>
+    
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+    <div class="fb-share-button" data-href="https://communities.usaa.com/t5/Press-Releases/Sesame-Workshop-USAA-and-the-Bob-Woodruff-Foundation-work/ba-p/216446" data-layout="button" data-text="This is the announcement" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>    </div>
+    <div></div>
+    <object type="text/html" class="center" id="preview2" data=""></object>
 
 </body>
 </html>
