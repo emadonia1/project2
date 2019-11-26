@@ -33,13 +33,31 @@
 }
 
 
-
 button
 {
     background-color: #800000;
     color: whitesmoke;
     height: 30px;
-    width: 49%;
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+    display: block;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#submit
+{
+    background-color: #800000;
+    color: whitesmoke;
+    height: 30px;
+    width: 700px;
     margin-top: 10px;
     margin-bottom: 30px;
 
@@ -79,15 +97,14 @@ button
   margin:auto;
 }
 
-#tweet
+.twitter-share-button
 {
-    padding-top: 50px;
+    padding-top: 10px;
     padding-bottom: 25px;
-    width: 6%;
+    width: 30%;
     height: 6%;
     /* padding: 10px; */
     /* float: left; */
-    clear: both;
     /* margin-top: 70px; */
 }
 
@@ -162,8 +179,8 @@ option{
  
 .fb-share-button{
     /* animation-delay: 10s; */
-    padding-top: 50px;
-    width: 12%;
+    padding-top: 10px;
+    width: 100px;
     height: 50px;
     clear: both; 
 } 

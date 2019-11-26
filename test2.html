@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test</title>
+    <title>USAA Announcement</title>
     <script src = 'https://code.jquery.com/jquery-3.4.1.min.js'></script>
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
@@ -80,7 +80,7 @@
                 document.getElementById("twitterPreviewId").innerHTML = JSON.parse(e);
                 var t = document.getElementById("twitterPreviewId").innerHTML;
                 twitterSummary=t;
-                // twitter();
+                twitter();
             });
         }
 
@@ -92,10 +92,10 @@
 
     function twitter()
     {
-        tweet.addEventListener('click',function(e)
+        tweet.addEventListener('click',function()
         {
-            $("#twitterPreviewId").attr("data", "https://twitter.com/intent/tweet?text=" + textToUse);
-        }, false);     
+            document.getElementsByClassName('twitter-share-button')[0].setAttribute("data-text", textToUse);
+        });
     }
 
 
@@ -151,8 +151,9 @@
     
     <h2>Twitter Summary:</h2>
     <p id="twitterPreviewId" class="center" value="twitterSummary"></p>
-    <!-- <object type="text/html" class="center" id="twitterPreviewId" data="twitterSummary"></object> -->
-    <img src="http://albinolullaby.com/img/s_tweet_button.png" id="tweet">
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <a href="http://twitter.com/share" id="tweet" class="twitter-share-button" data-href="https://communities.usaa.com/t5/Press-Releases/Sesame-Workshop-USAA-and-the-Bob-Woodruff-Foundation-work/ba-p/216446" data-text=""onclick="javascript:window.open(this.href, '', 'menubar=no,
+    toolbar=no, resizable=yes, scrollbars=yes, height=600, width=600');return false">Tweet</a>
 
     <div id="fb-root"></div>
     <h2>Facebook Summary:</h2>
