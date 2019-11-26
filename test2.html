@@ -46,10 +46,15 @@
 
                 document.getElementById("output").innerHTML = JSON.parse(e);
                 var s = document.getElementById("output").innerHTML;
+                document.getElementById("facebookPreviewId").innerHTML = JSON.parse(e);
+                var s = document.getElementById("facebookPreviewId").innerHTML;
+                document.getElementById("linkedinPreviewId").innerHTML = JSON.parse(e);
+                var s = document.getElementById("linkedinPreviewId").innerHTML;
                 textToUse=s;
                 // twitter();
                 copyToClip();
             });
+
         var twitterSettings = {
             "async": true,
             "crossDomain": true,
@@ -72,8 +77,8 @@
             {
                 var e = JSON.stringify(response.summary);
 
-                document.getElementById("preview1").innerHTML = JSON.parse(e);
-                var s = document.getElementById("preview1").innerHTML;
+                document.getElementById("twitterPreviewId").innerHTML = JSON.parse(e);
+                var t = document.getElementById("twitterPreviewId").innerHTML;
                 twitterSummary=t;
                 // twitter();
             });
@@ -89,17 +94,10 @@
     {
         tweet.addEventListener('click',function(e)
         {
-            $("#preview1").attr("data", "https://twitter.com/intent/tweet?text=" + textToUse);
+            $("#twitterPreviewId").attr("data", "https://twitter.com/intent/tweet?text=" + textToUse);
         }, false);     
     }
 
-    function facebook()
-    {
-        fb.addEventListener('click', function()
-        {
-            // window.open("https://facebook.com");
-        })
-    }
 
     function copyToClip()
     {
@@ -149,16 +147,28 @@
     </div>
 
     <div id="socialMedia" class="center">
-        <img src="http://albinolullaby.com/img/s_tweet_button.png" id="tweet">
     </div>
-    <object type="text/html" class="center" id="preview1" data="">
-    </object>
     
+    <h2>Twitter Summary:</h2>
+    <p id="twitterPreviewId" class="center" value="twitterSummary"></p>
+    <!-- <object type="text/html" class="center" id="twitterPreviewId" data="twitterSummary"></object> -->
+    <img src="http://albinolullaby.com/img/s_tweet_button.png" id="tweet">
+
     <div id="fb-root"></div>
+    <h2>Facebook Summary:</h2>
+    <p id="facebookPreviewId" class="center" value="this"></p>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
     <div class="fb-share-button" data-href="https://communities.usaa.com/t5/Press-Releases/Sesame-Workshop-USAA-and-the-Bob-Woodruff-Foundation-work/ba-p/216446" data-layout="button" data-text="This is the announcement" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>    </div>
     <div></div>
-    <object type="text/html" class="center" id="preview2" data=""></object>
+    <!-- <object type="text/html" class="center" id="facebookPreviewId" data="this"></object> -->
+    <div>
+    <h2>linkedin Summary:</h2>
+
+    <p id="linkedinPreviewId" class="center" value="this"></p>
+    <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+    <script type="In/Share" data-url="https://communities.usaa.com/t5/Press-Releases/Sesame-Workshop-USAA-and-the-Bob-Woodruff-Foundation-work/ba-p/216446"></script>
+        
+</div>    
 
 </body>
 </html>

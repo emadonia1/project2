@@ -92,10 +92,10 @@ button
 }
 
 
-#preview1
+#twitterPreviewId
 {
     border:1px solid #999999;
-    color: black;
+    color: white;
     font-size:20px;
     height: 100%;
     width: 700px;
@@ -103,10 +103,10 @@ button
     margin:auto;
 }
 
-#preview2
+#facebookPreviewId
 {
     border:1px solid #999999;
-    color: black;
+    color: white;
     font-size:20px;
     height: 100%;
     width: 700px;
@@ -114,7 +114,17 @@ button
     margin:auto;
     clear: both;
 }
-
+#linkedinPreviewId
+{
+    border:1px solid #999999;
+    color: white;
+    font-size:20px;
+    height: 100%;
+    width: 700px;
+    padding: 20px;
+    margin:auto;
+    clear: both;
+}
 /*  */
 
 
